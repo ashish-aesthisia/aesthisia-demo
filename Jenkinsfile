@@ -8,7 +8,7 @@ pipeline {
             steps {
                 echo "Build stage."
                 echo "Hello $params.ver1"
-                sh 'docker build dockerfile.dev -t  $params.ver1'
+                sh 'docker build -f dockerfile.dev -t "$params.ver1"'
                 sh 'docker run -p 3000:3000'
             }
         }
