@@ -1,13 +1,8 @@
 pipeline {
-  agent {
-        docker {
-            image 'node:6-alpine'
-            args '-p 3000:3000'
-        }
-    }
+  agent any
   tools {nodejs "node"}
   stages {
     stage('Build') {
       steps {
-        bat 'npm install'
+        sh 'docker-compose -f docker-compose.yaml up -d'
       }}}}
